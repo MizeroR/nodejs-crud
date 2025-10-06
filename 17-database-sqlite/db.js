@@ -1,0 +1,15 @@
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(':memory:');
+
+db.serialize(()=>{
+    db.run('CREATE TABLE users (id INT, name TEXT)');
+
+    const stmt = db.prepare("INSERT INTO users VALUES (?,?)");
+    stmt.run(1, 'Alice');
+    stmt.run(2, 'Bob');
+    stmt.finalize();
+
+    db.each("SELECT id, name FROM users", (err, row) =>{
+        console.log(row.id + ": " + row.name);
+    });
+});

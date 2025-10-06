@@ -1,0 +1,6 @@
+This is a sample file for testing Node.js streams.
+It contains multiple lines of text to demonstrate how streams work.
+Streams are useful for handling large amounts of data efficiently.
+They allow you to process data piece by piece instead of loading everything into memory.
+This makes your applications more memory efficient and responsive.
+Node.js streams are particularly useful for file operations, network requests, and data processing.
